@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #c0c3d3;
+}
+
+body {
+  background: #0b0d15;
+}
+
+#main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#title {
+  padding: 1rem;
+  width: fit-content;
+  background: #1c1f2b;
+  text-align: center;
+  border-radius: 10px;
+}
+
+h1,
+h1 span {
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #929292;
+  font-size: 2rem;
+}
+
+h1 span {
+  font-size: 160%;
+}
+
+#playerNameForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+#playerNameForm label {
+  font-weight: 500;
+}
+
+#playerNameForm input {
+  font-weight: 500;
+  background: transparent;
+  border: 2px solid #c0c3d3;
+  border-radius: 5px;
+  height: 2rem;
+}
+
+#startGame {
+  height: 2.5rem;
+  border-radius: 5px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  border: 2px solid #c0c3d3;
+}
+
+#loader {
+  display: none;
+  padding: 2rem;
+  width: 70px;
+  height: 70px;
+  border-radius: 360px;
+  background: #0b0d15;
+  margin: 0 auto;
+}
+
+#game {
+  max-height: 100vh;
+}
+
+.game-grid {
+  padding: 0.8rem;
+  display: grid;
+  row-gap: 1rem;
+  column-gap: 10px;
+  justify-items: center;
+
+  grid-template-rows: auto;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.titleElementGame {
+  grid-column: span 2;
+  text-align: center;
+}
+
+.flag-image {
+  padding: 1rem;
+  width: 100%;
+  max-height: 200px;
+  max-width: 300px;
+  border-radius: 20px;
+  grid-column: span 2;
+}
+
+.quitGameBtn,
+.country-option,
+.restartGameBtn {
+  grid-column: span 1;
+  grid-row: span 1;
+
+  margin: 10px;
+  padding: 8px;
+  min-width: 100%;
+  min-height: 50px;
+  background-color: #1c1f2b;
+  border: 2px solid #c0c3d3;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quitGameBtn{
+  grid-column: span 2;
+  border: 2px solid #d83333;
+  transition: .3s;
+}
+
+.quitGameBtn:hover{
+  background-color: #d83333;
+  border: none;
+}
+
+.titleElementQuit{
+  grid-column: span  2;
+  border-bottom: 2px solid #c0c3d3;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.playerName{
+  grid-column: span 2;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.correctAnswersDiv,
+.incorrectAnswersDiv {
+  border: 2px solid #51c051;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.incorrectAnswersDiv{
+  border-color: #d83333;
+}
+
+.correctAnswersDiv h5,
+.incorrectAnswersDiv h5{
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.correctOption{
+  border: 3px solid #008000;
+}
+
+.incorrectOption{
+  border: 3px solid #ff0000;
+}
+
+.restartGameBtn{
+  grid-column: span 2;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.borderAnimation {
+  position: relative;
+}
+
+.borderAnimation::after,
+.borderAnimation::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #800080, #ffa500);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+
+.borderAnimation::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+#loader::after,
+#loader::before {
+  border-radius: 360px;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
